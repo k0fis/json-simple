@@ -1,5 +1,5 @@
 /* See: README for this file's copyright, terms, and conditions. */
-package com.github.cliftonlabs.json_simple;
+package eu.kofis.json_simple;
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -55,8 +55,8 @@ public class JsonArrayTest{
 		json.add(3);
 		json.add(4);
 		json.add(5);
-		parameterList = new LinkedList<>();
-		parameterSet = new HashSet<>();
+		parameterList = new LinkedList<Integer>();
+		parameterSet = new HashSet<Integer>();
 		json.asCollection(parameterList);
 		json.asCollection(parameterSet);
 		Assert.assertTrue(parameterList.contains(1));
@@ -77,7 +77,7 @@ public class JsonArrayTest{
 		JsonArray json;
 		LinkedList<Integer> parameterList;
 		HashSet<Integer> parameterSet;
-		parameterList = new LinkedList<>();
+		parameterList = new LinkedList<Integer>();
 		parameterList.add(5);
 		parameterList.add(10);
 		parameterList.add(15);
@@ -85,7 +85,7 @@ public class JsonArrayTest{
 		Assert.assertTrue(json.contains(5));
 		Assert.assertTrue(json.contains(10));
 		Assert.assertTrue(json.contains(15));
-		parameterSet = new HashSet<>();
+		parameterSet = new HashSet<Integer>();
 		parameterSet.add(20);
 		parameterSet.add(25);
 		parameterSet.add(30);
@@ -127,11 +127,11 @@ public class JsonArrayTest{
 		List<?> output0;
 		Set<?> output1;
 		JsonArray output2;
-		list = new LinkedList<>();
+		list = new LinkedList<Integer>();
 		list.add(5);
 		list.add(10);
 		list.add(15);
-		set = new HashSet<>();
+		set = new HashSet<Integer>();
 		set.add(20);
 		set.add(25);
 		set.add(30);
@@ -160,7 +160,7 @@ public class JsonArrayTest{
 	@Test
 	public void testGetMap(){
 		final JsonArray json = new JsonArray();
-		final LinkedHashMap<Object, Object> map = new LinkedHashMap<>();
+		final LinkedHashMap<Object, Object> map = new LinkedHashMap<Object, Object>();
 		final JsonObject object = new JsonObject();
 		Map<?, ?> output0;
 		JsonObject output1;

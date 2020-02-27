@@ -1,5 +1,5 @@
 /* See: README for this file's copyright, terms, and conditions. */
-package com.github.cliftonlabs.json_simple;
+package eu.kofis.json_simple;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -75,7 +75,7 @@ public class JsonObjectTest{
 	public void testConstructor(){
 		JsonObject json;
 		LinkedHashMap<String, Integer> parameter;
-		parameter = new LinkedHashMap<>();
+		parameter = new LinkedHashMap<String, Integer>();
 		parameter.put("key0", 5);
 		parameter.put("key1", 10);
 		parameter.put("key2", 15);
@@ -121,11 +121,11 @@ public class JsonObjectTest{
 		List<?> output0;
 		Set<?> output1;
 		JsonArray output2;
-		list = new LinkedList<>();
+		list = new LinkedList<Integer>();
 		list.add(5);
 		list.add(10);
 		list.add(15);
-		set = new HashSet<>();
+		set = new HashSet<Integer>();
 		set.add(20);
 		set.add(25);
 		set.add(30);
@@ -155,7 +155,7 @@ public class JsonObjectTest{
 	@Test
 	public void testGetMap(){
 		final JsonObject json = new JsonObject();
-		final LinkedHashMap<Object, Object> map = new LinkedHashMap<>();
+		final LinkedHashMap<Object, Object> map = new LinkedHashMap<Object, Object>();
 		final JsonObject object = new JsonObject();
 		Map<?, ?> output0;
 		JsonObject output1;
@@ -276,7 +276,7 @@ public class JsonObjectTest{
 	/** Ensures the chain methods put entries as expected. */
 	@Test
 	public void testPutChains(){
-		final Map<String, Object> testAll = new HashMap<>();
+		final Map<String, Object> testAll = new HashMap<String, Object>();
 		testAll.put("field1", "value1");
 		testAll.put("field2", 2);
 		testAll.put("field3", "three");

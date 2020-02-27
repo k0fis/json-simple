@@ -1,3 +1,7 @@
+Version 4.1.1
+* Back to the java 6
+* add commentary into JSON
+
 Version 3.1.1 (2020/02/*)
 * JsonObject now has put methods that call JsonKey#getKey() on the given JsonKey as a convenience.
 * JsonObject now has remove methods that call JsonKey#getKey() on the given JsonKey as a convenience.

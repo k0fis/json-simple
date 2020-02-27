@@ -8,7 +8,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License. */
-package com.github.cliftonlabs.json_simple;
+package eu.kofis.json_simple;
 
 /** JsonException explains how and where the problem occurs in the source JSON text during deserialization.
  * @since 3.0.0 */

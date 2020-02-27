@@ -1,4 +1,4 @@
-package com.github.cliftonlabs.json_simple;
+package eu.kofis.json_simple;
 
 %%
 
@@ -23,6 +23,10 @@ DOUBLE = [-]?[0-9]+((\.[0-9]+)?([eE][-+]?[0-9]+)?)
 WS = [ \t\r\n]
 UNESCAPED_CH = [^\"\\]
 FALLBACK_CH = .
+Comment = {TraditionalComment} | {EndOfLineComment}
+TraditionalComment   = "/*" [^*] ~"*/" | "/*" "*"+ "/"
+EndOfLineComment     = "//" [^\r\n]* (\r|\n|\r\n)?
+
 %%
 
 <STRING_BEGIN> \"	 			{ yybegin(YYINITIAL);return new Yytoken(Yytoken.Types.DATUM, sb.toString());}
@@ -44,7 +48,8 @@ FALLBACK_CH = .
 		}
 	}
 <STRING_BEGIN> \\				{sb.append('\\');}
-												
+
+<YYINITIAL> {Comment}           { }
 <YYINITIAL> \" 					{ sb = null; sb = new StringBuilder(); yybegin(STRING_BEGIN);}
 <YYINITIAL> {DOUBLE}			{ java.math.BigDecimal val= new java.math.BigDecimal(yytext()); return new Yytoken(Yytoken.Types.DATUM, val);}
 <YYINITIAL> "true"|"false"		{ Boolean val=Boolean.valueOf(yytext()); return new Yytoken(Yytoken.Types.DATUM, val);}

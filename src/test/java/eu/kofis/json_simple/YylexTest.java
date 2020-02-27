@@ -1,5 +1,5 @@
 /* See: README for this file's copyright, terms, and conditions. */
-package com.github.cliftonlabs.json_simple;
+package eu.kofis.json_simple;
 
 import java.io.IOException;
 import java.io.StringReader;

@@ -8,7 +8,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License. */
-package com.github.cliftonlabs.json_simple;
+package eu.kofis.json_simple;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -92,8 +92,8 @@ public class Jsoner{
 		Yytoken token;
 		States currentState;
 		int returnCount = 1;
-		final LinkedList<States> stateStack = new LinkedList<>();
-		final LinkedList<Object> valueStack = new LinkedList<>();
+		final LinkedList<States> stateStack = new LinkedList<States>();
+		final LinkedList<Object> valueStack = new LinkedList<Object>();
 		stateStack.addLast(States.INITIAL);
 		do{
 			/* Parse through the parsable string's tokens. */
@@ -310,10 +310,12 @@ public class Jsoner{
 	public static JsonArray deserialize(final String deserializable, final JsonArray defaultValue){
 		StringReader readable = null;
 		JsonArray returnable;
-		try{
+		try {
 			readable = new StringReader(deserializable);
-			returnable = Jsoner.deserialize(readable, EnumSet.of(DeserializationOptions.ALLOW_JSON_ARRAYS)).<JsonArray> getCollection(0);
-		}catch(NullPointerException | JsonException caught){
+			returnable = Jsoner.deserialize(readable, EnumSet.of(DeserializationOptions.ALLOW_JSON_ARRAYS)).<JsonArray>getCollection(0);
+		} catch (JsonException caught) {
+			returnable = defaultValue;
+		}catch(NullPointerException e){
 			/* Don't care, just return the default value. */
 			returnable = defaultValue;
 		}finally{
@@ -334,10 +336,12 @@ public class Jsoner{
 	public static JsonObject deserialize(final String deserializable, final JsonObject defaultValue){
 		StringReader readable = null;
 		JsonObject returnable;
-		try{
+		try {
 			readable = new StringReader(deserializable);
-			returnable = Jsoner.deserialize(readable, EnumSet.of(DeserializationOptions.ALLOW_JSON_OBJECTS)).<JsonObject> getMap(0);
-		}catch(NullPointerException | JsonException caught){
+			returnable = Jsoner.deserialize(readable, EnumSet.of(DeserializationOptions.ALLOW_JSON_OBJECTS)).<JsonObject>getMap(0);
+		} catch (JsonException caught) {
+			returnable = defaultValue;
+		}catch(NullPointerException e){
 			/* Don't care, just return the default value. */
 			returnable = defaultValue;
 		}finally{

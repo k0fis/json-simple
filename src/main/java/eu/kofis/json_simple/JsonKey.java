@@ -1,4 +1,4 @@
-package com.github.cliftonlabs.json_simple;
+package eu.kofis.json_simple;
 
 /** Represents the key of a JsonObject. Utilizing JsonKeys allows many of the convenience methods that self document
  * your JSON data model and make refactoring easier. It is recommended to implement JsonKeys as an enum.

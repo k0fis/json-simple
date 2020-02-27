@@ -8,7 +8,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License. */
-package com.github.cliftonlabs.json_simple;
+package eu.kofis.json_simple;
 
 import java.io.IOException;
 import java.io.StringWriter;
@@ -598,7 +598,7 @@ public class JsonObject extends HashMap<String, Object> implements Jsonable{
 	 * @since 2.3.0 to ensure critical keys are in the JsonObject. */
 	public void requireKeys(final JsonKey... keys){
 		/* Track all of the missing keys. */
-		final Set<JsonKey> missing = new HashSet<>();
+		final Set<JsonKey> missing = new HashSet<JsonKey>();
 		for(final JsonKey k : keys){
 			if(!this.containsKey(k.getKey())){
 				missing.add(k);
